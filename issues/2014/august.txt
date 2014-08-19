@@ -1,0 +1,14 @@
+Working on robots.txt link which is accessed by search engines for indexing.
+It was supposed to be of mime type or content type text/plain.
+Tried with 
+  1. @RequestMapping(produces="text/plain")
+  2. public String robotsTxt(HttpServletResponse response) {
+      response.setContentType("text/plain");
+     }
+  3. response.setHeader("Content-type", "text/plain");
+nothing worked. It was still treated as html.
+Finally using ResponseEntity worked
+
+  HttpHeaders responseHeaders = new HttpHeaders();
+  responseHeaders.setContentType(MediaType.TEXT_PLAIN);
+  return new ResponseEntity<String>("Any text with new line \n next line here.",responseHeaders, HttpStatus.OK );
