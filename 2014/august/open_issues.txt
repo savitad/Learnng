@@ -1,0 +1,4 @@
+When working on same thing, this was supposed to be added in two apps. 
+In one app controllers used org.springframework.web.bind.annotation.* annotations (RequestMapping).
+In another, javax.ws.rs.* annotations (Path).
+When I used spring annotations in 2nd app didnt work.
